@@ -26,7 +26,7 @@
            print "<tr><td>$registro[usuario]</td>
                      <td>$registro[password]</td>
                       <td>$registro[nombre]</td>
-                     <td>$registro[apellidos]</td></tr> </table> <br>";
+                     <td>$registro[apellidos]</td></tr> ";
            
            
       
@@ -42,6 +42,7 @@
    
    
 ?>
+</table> <br>
 <a href="menu.php">Volver al menú</a>
 </body>
 </html>

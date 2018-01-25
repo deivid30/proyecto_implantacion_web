@@ -17,8 +17,19 @@ $apellidos=recoge("apellidos");
 try {
     $base=conectadb();
     //Funcion para insertar los datos
-    $stmt=$pdo->prepare("INSERT INTO usuarios (usuario, password, nombre, apellidos) values(:usuario, :password, :nombre, :apellidos)");
-    $datos=array(':name'=>'usuario', ':password'=>'password', ':nombre'=>'nombre', ':apellidos'=>'apellidos');
+    $sql="INSERT INTO usuarios (usuario, password, nombre, apellidos) values(:usuario, :password, :nombre, :apellidos)";
+    $resultado=$base->prepare($sql);
+    $resultado->execute(array(":usuario"=>$usuario, ":password"=>$password, ":nombre"=>$nombre, ":apellidos"=>$apellidos));
+    
+    
+    echo "Registro insertado de $usuario <br>";
+    echo "<a href='menu.php'>Volver al menu</a>";   
+    
+    
+    
+    
+    $resultado->closeCursor();
+    
     
     
     

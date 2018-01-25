@@ -7,22 +7,21 @@ function recoge($var)
     : "";
     return $tmp;
 }
-
-
 $usuario=recoge("usuario");
 
 try {
     $base=conectadb();
-    //Funcion para borrar los datos
-    $sql="DELETE FROM usuarios where usuario=:usuario";
+    //Funcion para insertar los datos
+    $sql="DELETE FROM usuarios";
     $resultado=$base->prepare($sql);
-    
     $resultado->execute(array(":usuario"=>$usuario));
+   
     
     
-    echo "Registro Eliminado de $usuario correctamente <br>";
+    echo "Borrado correcto de la base datos <br>";
+    echo "<a href='menu.php'>Volver al menu</a>";   
     
-    echo "<a href='menu.php'>Volver al menu</a>";    
+    
     
     
     $resultado->closeCursor();
@@ -37,5 +36,3 @@ try {
 }finally{
     $base=null;
 }
-
-
